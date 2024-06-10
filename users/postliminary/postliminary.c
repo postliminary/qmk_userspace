@@ -64,11 +64,17 @@ bool led_update_user(led_t led_state) {
 }
 
 __attribute__ ((weak))
-void rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max) {}
+bool rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max) {
+#ifdef LAYER_MASK_ENABLED
+    return true;
+#else
+    return false;
+#endif
+}
 
-void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 #ifdef LAYER_MASK_ENABLED
     apply_layer_mask(led_min, led_max);
 #endif
-    rgb_matrix_indicators_advanced_keymap(led_min, led_max);
+    return rgb_matrix_indicators_advanced_keymap(led_min, led_max);
 }
