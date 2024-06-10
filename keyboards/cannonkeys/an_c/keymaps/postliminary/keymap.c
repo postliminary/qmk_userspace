@@ -23,9 +23,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___X___, _______, _______,                            _______,                                     _______, _______, ___X___
     )
 };
-
-void matrix_init_keymap(void) {
-#ifdef LAYER_MASK_ENABLED
-    LAYER_MASK_INIT(keymaps);
-#endif
-};
