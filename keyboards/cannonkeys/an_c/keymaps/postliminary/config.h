@@ -1,2 +1,2 @@
 #define PERMISSIVE_HOLDS
-#define RGBLIGHT_ENABLE no
+#define RGBLIGHT_ENABLE false
